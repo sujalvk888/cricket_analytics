@@ -49,7 +49,7 @@ A comprehensive, full-stack Cricket Analytics and Live Match Tracking Dashboard 
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/cricket_analytics.git
+git clone https://github.com/sujalvk888/cricket_analytics.git
 cd cricket_analytics
 ```
 
