@@ -1,0 +1,341 @@
+/* Data Entry Page */
+.data-entry-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Title Area */
+.page-title-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.title-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(13, 20, 36, 0.8);
+  border: 2px solid var(--accent-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-blue);
+  box-shadow: 0 0 15px var(--accent-blue-glow);
+}
+
+.title-text h2 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.title-text p {
+  color: #d8d8d8;
+  font-size: 13px;
+}
+
+/* Match Info Panel */
+.match-info-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--accent-blue-glow);
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.form-group label {
+  font-size: 12px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.form-separator {
+  width: 1px;
+  height: 32px;
+  background: var(--border-light);
+  margin: 0 16px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(5, 10, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.input-icon {
+  margin-right: 8px;
+}
+
+.purple-icon { color: var(--accent-purple); }
+.green-icon { color: var(--accent-green); }
+.blue-icon { color: var(--accent-blue); }
+
+.input-wrapper select,
+.input-wrapper input {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+.input-wrapper select option {
+  background: var(--bg-dark);
+}
+
+/* Innings Toggle */
+.innings-toggle {
+  display: flex;
+  background: rgba(5, 10, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.innings-toggle button {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.innings-toggle button.active {
+  background: var(--accent-blue);
+  color: white;
+}
+
+/* Data Table Panel */
+.data-table-panel {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+}
+
+.panel-header {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.panel-header h3 {
+  color: var(--accent-cyan);
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.info-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Table */
+.table-container {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.table-container::-webkit-scrollbar {
+  width: 8px;
+}
+.table-container::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.data-table th {
+  padding: 6px 10px;
+  font-size: 11px;
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  background: rgba(13, 20, 36, 0.95);
+  z-index: 5;
+}
+
+.data-table td {
+  padding: 4px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 13px;
+}
+
+.data-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.locked-row td {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.number-input {
+  display: flex;
+  justify-content: center;
+}
+
+.number-input input {
+  width: 50px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: var(--text-primary);
+  text-align: center;
+  padding: 4px;
+  font-family: inherit;
+}
+
+.number-input input:focus {
+  outline: 1px solid var(--accent-blue);
+  border-color: var(--accent-blue);
+}
+
+.number-input input:disabled {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-secondary);
+}
+
+.cumulative-runs {
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.cumulative-wickets {
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+/* Badges */
+.badge-all-out {
+  background: rgba(255, 59, 48, 0.2);
+  color: #ff3b30;
+  border: 1px solid rgba(255, 59, 48, 0.5);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.badge-locked {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* Panel Footer */
+.panel-footer {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-light);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.bottom-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.success-msg {
+  color: var(--accent-green);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.btn-clear, .btn-save {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  color: white;
+}
+
+.btn-clear {
+  background: linear-gradient(135deg, #7a00e6, #5c00b3);
+}
+
+.btn-save {
+  background: linear-gradient(135deg, #009938, #006625);
+}
+
+.btn-clear:hover, .btn-save:hover {
+  opacity: 0.9;
+}
+
+.btn-save.success:hover { background: rgba(40, 167, 69, 0.3); }

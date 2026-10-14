@@ -1,0 +1,202 @@
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 20px;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.welcome-section {
+  text-align: center;
+  margin-bottom: 4vh;
+}
+
+.welcome-section h2 {
+  font-size: clamp(24px, 4.5vh, 42px);
+  font-weight: 600;
+  margin-bottom: 2vh;
+}
+
+.welcome-section h2 span {
+  color: var(--accent-blue);
+  font-weight: 700;
+  text-shadow: 0 0 15px var(--accent-blue-glow);
+}
+
+.decorative-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 2vh;
+}
+
+.divider-line {
+  height: 2px;
+  width: 30px;
+  border-radius: 2px;
+}
+
+.divider-line.blue {
+  background: linear-gradient(90deg, transparent, var(--accent-blue));
+}
+
+.divider-line.purple {
+  background: linear-gradient(270deg, transparent, var(--accent-purple));
+}
+
+.ball-icon-svg {
+  color: #ff3b30;
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.ball-icon-svg img {
+  animation: spin 5s linear infinite;
+}
+
+.welcome-section p {
+  font-size: 16px;
+  color: #f4f4f4;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Cards */
+.cards-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1050px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-card {
+  flex: 1;
+  min-width: 280px;
+  max-width: 320px;
+  min-height: 360px;
+  background: var(--bg-card);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  
+  border-radius: 20px;
+  padding: 6vh 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon-container {
+  width: clamp(60px, 9vh, 80px);
+  height: clamp(60px, 9vh, 80px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3vh;
+  border: 2px solid transparent;
+}
+
+.card-icon {
+  width: clamp(30px, 4.5vh, 40px);
+  height: clamp(30px, 4.5vh, 40px);
+}
+
+.nav-card h3 {
+  font-size: clamp(18px, 2.5vh, 22px);
+  font-weight: 600;
+  margin-bottom: 1.5vh;
+}
+
+.nav-card p {
+  font-size: clamp(14px, 1.6vh, 15px);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 auto 3vh;
+  max-width: 250px;
+  flex-grow: 1;
+}
+
+.nav-button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s ease;
+}
+
+.nav-button:hover {
+  opacity: 0.9;
+}
+
+/* Card Themes */
+.card-blue {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px var(--accent-blue-glow);
+}
+.card-blue .card-icon-container {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  box-shadow: 0 0 20px var(--accent-blue-glow);
+}
+.card-blue h3 { color: var(--accent-blue); }
+.card-blue .nav-button {
+  background: linear-gradient(135deg, #1e70e6, #004dcc);
+  box-shadow: 0 4px 15px var(--accent-blue-glow);
+}
+
+.card-green {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px var(--accent-green-glow);
+}
+.card-green .card-icon-container {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  box-shadow: 0 0 20px var(--accent-green-glow);
+}
+.card-green h3 { color: var(--accent-green); }
+.card-green .nav-button {
+  background: linear-gradient(135deg, #009938, #006625);
+  box-shadow: 0 4px 15px var(--accent-green-glow);
+}
+
+.card-purple {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px var(--accent-purple-glow);
+}
+.card-purple .card-icon-container {
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+  box-shadow: 0 0 20px var(--accent-purple-glow);
+}
+.card-purple h3 { color: var(--accent-purple); }
+.card-purple .nav-button {
+  background: linear-gradient(135deg, #883bcc, #5e1ca6);
+  box-shadow: 0 4px 15px var(--accent-purple-glow);
+}
+

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #050a14;
+  --bg-card: rgba(13, 20, 36, 0.6);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: #8a9bbd;
+  --accent-blue: #2a85ff;
+  --accent-blue-glow: rgba(42, 133, 255, 0.3);
+  --accent-green: #00b341;
+  --accent-green-glow: rgba(0, 179, 65, 0.3);
+  --accent-purple: #9d4edd;
+  --accent-purple-glow: rgba(157, 78, 221, 0.3);
+  --accent-cyan: #00d4ff;
+  --accent-gold: #ffb700;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom, rgba(5, 10, 20, 0.3), rgba(5, 10, 20, 0.6)), url('../assets/stadium_bg.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
