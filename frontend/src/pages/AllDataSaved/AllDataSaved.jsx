@@ -15,6 +15,7 @@ import {
   ArrowUpRight
 } from 'lucide-react';
 import SavedInningsCard from './components/SavedInningsCard';
+import { API_BASE_URL } from '../../config/api';
 
 function AllDataSaved() {
   const [allMatches, setAllMatches] = useState([]);
@@ -33,7 +34,7 @@ function AllDataSaved() {
   // Fetch Data
   const fetchAllData = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/innings-history');
+      const res = await fetch(`${API_BASE_URL}/api/innings-history`);
       const data = await res.json();
       setAllMatches(data);
       setFilteredMatches(data); // initially unfiltered
@@ -130,7 +131,7 @@ function AllDataSaved() {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/innings/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/innings/${id}`, {
         method: 'DELETE'
       });
       const data = await res.json();

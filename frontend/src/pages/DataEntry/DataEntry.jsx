@@ -10,6 +10,7 @@ import {
   Shield 
 } from 'lucide-react';
 import { v4 as uuidv4 } from 'uuid';
+import { API_BASE_URL } from '../../config/api';
 
 function DataEntry() {
   const [matchInfo, setMatchInfo] = useState({
@@ -33,7 +34,7 @@ function DataEntry() {
   const [saveSuccess, setSaveSuccess] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/metadata')
+    fetch(`${API_BASE_URL}/api/metadata`)
       .then(res => res.json())
       .then(data => {
         if (data.teams && data.venues) {
@@ -118,7 +119,7 @@ function DataEntry() {
     setSaveSuccess(false);
 
     try {
-      const response = await fetch('http://localhost:5000/api/innings', {
+      const response = await fetch(`${API_BASE_URL}/api/innings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -132,7 +133,7 @@ function DataEntry() {
         setSaveSuccess(true);
         setTimeout(() => setSaveSuccess(false), 3000);
         // Refresh metadata so newly typed teams are available in datalist
-        fetch('http://localhost:5000/api/metadata')
+        fetch(`${API_BASE_URL}/api/metadata`)
           .then(res => res.json())
           .then(data => {
             if (data.teams && data.venues) setMetadata(data);

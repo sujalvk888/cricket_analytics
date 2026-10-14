@@ -14,6 +14,7 @@ import {
   ChevronLeft
 } from 'lucide-react';
 import HistoricalMatchCard from './components/HistoricalMatchCard';
+import { API_BASE_URL } from '../../config/api';
 
 function LiveMatch() {
   const [isRightPanelMinimized, setIsRightPanelMinimized] = useState(false);
@@ -48,12 +49,12 @@ function LiveMatch() {
 
   // Fetch History and Metadata
   const fetchHistory = () => {
-    fetch('http://localhost:5000/api/innings-history')
+    fetch(`${API_BASE_URL}/api/innings-history`)
       .then(res => res.json())
       .then(data => setHistory(data))
       .catch(err => console.error("Failed to load history", err));
     
-    fetch('http://localhost:5000/api/metadata')
+    fetch(`${API_BASE_URL}/api/metadata`)
       .then(res => res.json())
       .then(data => {
         if (data.teams) setMetadata(data);
@@ -134,7 +135,7 @@ function LiveMatch() {
     setSaveSuccess(false);
 
     try {
-      const response = await fetch('http://localhost:5000/api/innings', {
+      const response = await fetch(`${API_BASE_URL}/api/innings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

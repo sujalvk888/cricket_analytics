@@ -49,6 +49,11 @@ const db = new sqlite3.Database('./cricket.db', (err) => {
   }
 });
 
+// Root endpoint for deployment verification
+app.get('/', (req, res) => {
+  res.json({ status: 'success', message: 'Cricket Analytics Backend API is live!' });
+});
+
 // Basic route to test backend connectivity
 app.get('/api/status', (req, res) => {
   res.json({ status: 'success', message: 'Cricket Analytics backend is running!' });

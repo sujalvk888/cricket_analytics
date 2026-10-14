@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Edit3, Shield, MapPin, Calendar as CalendarIcon, Save, X, Trash2, Info } from 'lucide-react';
 import BatImg from '../../assets/Bat.png';
 import DeleteConfirmationModal from '../../components/DeleteConfirmationModal/DeleteConfirmationModal';
+import { API_BASE_URL } from '../../config/api';
 
 function EditSavedData() {
   const { id } = useParams();
@@ -31,7 +32,7 @@ function EditSavedData() {
 
   useEffect(() => {
     // Fetch data for the specific ID
-    fetch(`http://localhost:5000/api/innings/${id}`)
+    fetch(`${API_BASE_URL}/api/innings/${id}`)
       .then(res => res.json())
       .then(data => {
         if (data.error) {
@@ -150,7 +151,7 @@ function EditSavedData() {
         }))
       };
 
-      const res = await fetch(`http://localhost:5000/api/innings/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/innings/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -176,7 +177,7 @@ function EditSavedData() {
   const confirmDelete = async () => {
     setIsDeleteModalOpen(false);
     try {
-      const res = await fetch(`http://localhost:5000/api/innings/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/innings/${id}`, {
         method: 'DELETE'
       });
       const data = await res.json();
