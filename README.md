@@ -1,7 +1,7 @@
 # 🏏 Cricket Analytics
 
 <p align="center">
-  <img src="frontend/src/assets/Logo.png" alt="Cricket Analytics Logo" width="120" style="border-radius: 50%;" />
+  <img src="frontend/src/assets/Logo.png" alt="Cricket Analytics Logo" width="120" style="border-radius: 50%; box-shadow: 0 4px 20px rgba(0, 230, 153, 0.3);" />
 </p>
 
 <p align="center">
@@ -9,14 +9,30 @@
 </p>
 
 <p align="center">
+  <a href="https://cricket-analytics-roan.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
+  </a>
+  <a href="https://cricket-analytics-backend-psai.onrender.com" target="_blank">
+    <img src="https://img.shields.io/badge/Backend%20API-Render-46E3B7?style=for-the-badge&logo=render&logoColor=black" alt="Backend API" />
+  </a>
   <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19" /></a>
   <a href="https://vite.dev/"><img src="https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" /></a>
-  <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" /></a>
-  <a href="https://expressjs.com/"><img src="https://img.shields.io/badge/Express-4.18-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" /></a>
+  <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-20%20LTS-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" /></a>
+  <a href="https://expressjs.com/"><img src="https://img.shields.io/badge/Express-5.2-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" /></a>
   <a href="https://www.sqlite.org/"><img src="https://img.shields.io/badge/SQLite-3.0-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" /></a>
   <a href="https://recharts.org/"><img src="https://img.shields.io/badge/Recharts-2.15-22b5bf?style=for-the-badge" alt="Recharts" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT License" /></a>
 </p>
+
+---
+
+## 🚀 Live Deployments
+
+| Component | Platform | Live URL | Status |
+| :--- | :--- | :--- | :--- |
+| **Frontend Application** | **Vercel** | [https://cricket-analytics-roan.vercel.app](https://cricket-analytics-roan.vercel.app) | ![Vercel](https://img.shields.io/badge/Deployed-Live-success?style=flat-square&logo=vercel) |
+| **Backend REST API** | **Render** | [https://cricket-analytics-backend-psai.onrender.com](https://cricket-analytics-backend-psai.onrender.com) | ![Render](https://img.shields.io/badge/Active-Running-success?style=flat-square&logo=render) |
+| **Source Code** | **GitHub** | [https://github.com/sujalvk888/cricket_analytics](https://github.com/sujalvk888/cricket_analytics) | ![GitHub](https://img.shields.io/badge/Repo-Public-blue?style=flat-square&logo=github) |
 
 ---
 
@@ -28,11 +44,13 @@
 - [Project Directory Structure](#-project-directory-structure)
 - [Database Schema](#-database-schema)
 - [API Reference](#-api-reference)
-- [Getting Started](#-getting-started)
+- [Environment Variables](#-environment-variables)
+- [Local Development Setup](#-local-development-setup)
   - [Prerequisites](#prerequisites)
   - [1. Clone Repository](#1-clone-repository)
   - [2. Backend Setup](#2-backend-setup)
   - [3. Frontend Setup](#3-frontend-setup)
+- [Deployment Architecture](#-deployment-architecture)
 - [Application Walkthrough](#-application-walkthrough)
 - [Available Scripts](#-available-scripts)
 - [Contributing](#-contributing)
@@ -45,7 +63,7 @@
 **Cricket Analytics** is an end-to-end analytics platform designed for T20 and limited-overs cricket. It bridges real-time match data entry with deep historical match benchmarking, giving analysts, coaches, and enthusiasts actionable insights as each ball is bowled.
 
 The platform provides a dual-pane live interface:
-1. **Live Match Interaction Console**: Record runs, wickets, extras, and overs completed in real time.
+1. **Live Match Interaction Console**: Record runs, wickets, extras, and overs completed in real time with instant Current Run Rate (CRR) and projected score calculations.
 2. **Historical Comparison Engine**: Instantly matches the current game against past innings across venues, opponents, and match situations, visualizing worm charts, run-rate comparisons, and 20-over benchmark averages.
 
 ---
@@ -79,31 +97,34 @@ The platform provides a dual-pane live interface:
 ```
 +-------------------------------------------------------------+
 |                     React 19 Frontend                       |
-|   (Vite, React Router v7, Recharts, Lucide Icons, CSS Grid) |
+|   (Vercel: Vite 6, React Router v7, Recharts, Lucide Icons) |
 +-------------------------------------------------------------+
                               |
                      REST API (HTTP/JSON)
                               |
 +-------------------------------------------------------------+
 |                     Node.js / Express                       |
-|   (Express Router, CORS, SQLite3 Driver, Dotenv)           |
+|   (Render: Express 5, CORS, SQLite3 v5.1.7 Driver, Dotenv)  |
 +-------------------------------------------------------------+
                               |
 +-------------------------------------------------------------+
 |                     SQLite Database                         |
-|   (cricket.db: Relational tables for innings & overs)      |
+|   (cricket.db: Relational tables for innings & overs)       |
 +-------------------------------------------------------------+
 ```
 
 | Layer | Technology | Description |
 | :--- | :--- | :--- |
-| **Frontend Framework** | [React 19](https://react.dev/) | Component architecture, state management & hooks |
+| **Frontend Framework** | [React 19](https://react.dev/) | Modern component architecture, state management & hooks |
 | **Build Tool** | [Vite 6](https://vite.dev/) | Next-generation ultra-fast frontend tooling |
-| **Routing** | [React Router DOM v7](https://reactrouter.com/) | Client-side routing across dashboard views |
+| **Frontend Hosting** | [Vercel](https://vercel.com/) | Edge-optimized global CDN with automatic continuous deployment |
+| **Routing** | [React Router DOM v7](https://reactrouter.com/) | Client-side routing with `vercel.json` SPA rewrite rules |
 | **Data Visualization** | [Recharts 2.15](https://recharts.org/) | Declarative charting library for worm curves and metrics |
 | **Icons** | [Lucide React](https://lucide.dev/) | Clean, modern vector icon set |
-| **Backend Server** | [Express](https://expressjs.com/) on [Node.js](https://nodejs.org/) | Lightweight REST API server |
-| **Database** | [SQLite3](https://www.sqlite.org/) | Embedded ACID-compliant relational SQL database |
+| **Backend Runtime** | [Node.js 20 LTS](https://nodejs.org/) | Long-term support JavaScript server runtime |
+| **Backend Server** | [Express 5](https://expressjs.com/) | Lightweight, high-throughput REST API server |
+| **Backend Hosting** | [Render](https://render.com/) | Managed cloud Web Service running in a Linux container |
+| **Database** | [SQLite3 5.1.7](https://www.sqlite.org/) | Embedded ACID-compliant relational SQL database |
 
 ---
 
@@ -111,9 +132,10 @@ The platform provides a dual-pane live interface:
 
 ```text
 cricket_analytics/
+├── .github/                      # GitHub configuration & workflows
 ├── backend/
 │   ├── cricket.db                # SQLite database with match history
-│   ├── package.json              # Backend dependencies & scripts
+│   ├── package.json              # Backend dependencies, engines & scripts
 │   └── server.js                 # Express REST API & SQLite schema definition
 ├── frontend/
 │   ├── public/
@@ -124,6 +146,8 @@ cricket_analytics/
 │   │   ├── components/           # Reusable UI components
 │   │   │   ├── DeleteConfirmationModal/  # Custom modal for safe deletions
 │   │   │   └── Layout/           # Global header, navigation, and container
+│   │   ├── config/
+│   │   │   └── api.js            # Central API configuration (VITE_API_URL)
 │   │   ├── pages/                # Main application views
 │   │   │   ├── AllDataSaved/     # Saved matches view, filters & cards
 │   │   │   ├── DataEntry/        # Standalone manual match scoring
@@ -134,8 +158,11 @@ cricket_analytics/
 │   │   ├── App.jsx               # Application route configuration
 │   │   └── main.jsx              # Application bootstrap & entry point
 │   ├── package.json              # Frontend dependencies & scripts
+│   ├── vercel.json               # Vercel SPA routing rules
 │   └── vite.config.js            # Vite build configuration
 ├── .gitignore                    # Global ignore rules (dependencies, logs, build)
+├── .node-version                 # Pinned Node.js 20 LTS version for Render
+├── LICENSE                       # MIT License
 └── README.md                     # Comprehensive project documentation
 ```
 
@@ -172,10 +199,11 @@ The SQLite database (`backend/cricket.db`) stores normalized match and ball-by-b
 
 ## 🔌 API Reference
 
-The backend Express service exposes the following endpoints on `http://localhost:5000`:
+The backend Express service exposes the following endpoints on `https://cricket-analytics-backend-psai.onrender.com`:
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
+| `GET` | `/` | Root health-check endpoint confirming backend availability |
 | `GET` | `/api/status` | Health check route to verify backend connectivity |
 | `GET` | `/api/metadata` | Fetches distinct teams and venues for search autocomplete |
 | `GET` | `/api/innings-history` | Fetches all saved innings with their associated overs data |
@@ -186,12 +214,27 @@ The backend Express service exposes the following endpoints on `http://localhost
 
 ---
 
-## 🚀 Getting Started
+## ⚙️ Environment Variables
+
+### Frontend (`frontend/.env` or Vercel Environment Variables)
+| Variable | Description | Default (Local) | Production (Vercel) |
+| :--- | :--- | :--- | :--- |
+| `VITE_API_URL` | Base URL of the backend REST API | `http://localhost:5000` | `https://cricket-analytics-backend-psai.onrender.com` |
+
+### Backend (`backend/.env` or Render Environment Variables)
+| Variable | Description | Default (Local) | Production (Render) |
+| :--- | :--- | :--- | :--- |
+| `PORT` | HTTP port on which the Express server listens | `5000` | `10000` (auto-assigned) |
+| `NODE_VERSION` | Pinned Node.js version | System default | `20` |
+
+---
+
+## 💻 Local Development Setup
 
 Follow these step-by-step instructions to get the application running locally on your workstation.
 
 ### Prerequisites
-- **Node.js** (v18.0.0 or higher recommended) - [Download Node.js](https://nodejs.org/)
+- **Node.js** (v18.0.0 or v20 LTS recommended) - [Download Node.js](https://nodejs.org/)
 - **Git** - [Download Git](https://git-scm.com/)
 
 ---
@@ -207,7 +250,7 @@ cd cricket_analytics
 
 ### 2. Backend Setup
 
-Open your terminal, navigate to the `backend` directory, install dependencies, and launch the server:
+Open a terminal, navigate to the `backend` directory, install dependencies, and launch the server:
 
 ```bash
 # Navigate to backend directory
@@ -222,7 +265,7 @@ node server.js
 
 The server will start on:
 ```text
-http://localhost:5000
+Server running on port 5000
 Connected to the SQLite database.
 ```
 
@@ -250,10 +293,32 @@ http://localhost:5173
 
 ---
 
+## 🌐 Deployment Architecture
+
+The application is deployed across modern cloud services for optimal performance and reliability:
+
+1. **Frontend on [Vercel](https://vercel.com/)**:
+   - **Root Directory**: `frontend`
+   - **Framework Preset**: `Vite`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Routing**: `frontend/vercel.json` rewrites all SPA routes to `/index.html` to allow direct URL access and clean page refreshes.
+   - **Live URL**: [https://cricket-analytics-roan.vercel.app](https://cricket-analytics-roan.vercel.app)
+
+2. **Backend on [Render](https://render.com/)**:
+   - **Root Directory**: `backend`
+   - **Runtime**: `Node` (v20 LTS via `.node-version`)
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+   - **Database**: Embedded SQLite database (`backend/cricket.db`)
+   - **Live URL**: [https://cricket-analytics-backend-psai.onrender.com](https://cricket-analytics-backend-psai.onrender.com)
+
+---
+
 ## 🖥 Application Walkthrough
 
 ### 1. Live Match Scoring & Analytics (`/live-match`)
-- Enter the live match parameters (Batting Team, Bowling Team, Venue, Match Date).
+- Enter live match parameters (Batting Team, Bowling Team, Venue, Match Date).
 - Enter over-by-over runs and wickets as they happen.
 - Watch the **Current Run Rate (CRR)**, **Total Runs**, **Total Wickets**, and **Projected Scores** update instantaneously.
 - Toggle between minimized and expanded modes using the top-right collapse control for maximized graph space.
@@ -273,7 +338,9 @@ http://localhost:5173
 ## 🛠 Available Scripts
 
 ### Backend (`/backend`)
-- `node server.js` - Starts the backend REST API server.
+- `npm start` - Starts the production backend Express server.
+- `npm run dev` - Starts the development server with automatic file watching via `nodemon`.
+- `npm run build` - Rebuilds native SQLite bindings from source if necessary.
 
 ### Frontend (`/frontend`)
 - `npm run dev` - Launches the Vite development server with Hot Module Replacement (HMR).
@@ -300,5 +367,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
-  Crafted with ❤️ for cricket enthusiasts and analysts.
+  Crafted with ❤️ by <strong>Sujal V Kanchan</strong> for cricket analysts, coaches, and enthusiasts.
 </p>
